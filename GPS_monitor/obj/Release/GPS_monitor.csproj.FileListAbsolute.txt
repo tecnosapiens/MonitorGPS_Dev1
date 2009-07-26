@@ -1,0 +1,44 @@
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\bin\Release\GPS_monitor.exe
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\bin\Release\GPS_monitor.pdb
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.ConfiguraPuerto.resources
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.Form_ppal.resources
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.Properties.Resources.resources
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.VisorTramasNMEA.resources
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.csproj.GenerateResource.Cache
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.exe
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.pdb
+C:\Documents and Settings\admin\Escritorio\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.CanvasMapa.resources
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\ResolveAssemblyReference.cache
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.CanvasMapa.resources
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.ConfiguraPuerto.resources
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.Form_ppal.resources
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.Properties.Resources.resources
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.VisorTramasNMEA.resources
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.csproj.GenerateResource.Cache
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.exe
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\obj\Release\GPS_monitor.pdb
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\bin\Release\GPS_monitor.exe
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\bin\Release\GPS_monitor.pdb
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\bin\Release\System.Data.SQLite.dll
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\bin\Release\System.Data.OracleClient.dll
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\bin\Release\System.Web.dll
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\bin\Release\System.EnterpriseServices.dll
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\bin\Release\System.Transactions.dll
+C:\Users\ROCA\Desktop\GPS_monitor\GPS_monitor\bin\Release\System.EnterpriseServices.Wrapper.dll
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\bin\Release\GPS_monitor.exe
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\bin\Release\GPS_monitor.pdb
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\bin\Release\System.Data.OracleClient.dll
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\bin\Release\System.Web.dll
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\bin\Release\System.EnterpriseServices.dll
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\bin\Release\System.Transactions.dll
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\bin\Release\System.EnterpriseServices.Wrapper.dll
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\ResolveAssemblyReference.cache
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.CanvasMapa.resources
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.ConfiguraPuerto.resources
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.Form_ppal.resources
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.Properties.Resources.resources
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.VisorTramasNMEA.resources
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.csproj.GenerateResource.Cache
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.exe
+C:\Users\ROCA\Desktop\GPS_monitor\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.pdb

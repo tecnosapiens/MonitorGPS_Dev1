@@ -1,0 +1,81 @@
+http://social.msdn.microsoft.com/Forums/en-US/microsoftdeviceemu/thread/bb5c2290-f94c-4a6e-afc4-e4e5f18f900f
+
+
+
+I found it working now, I mapped COM4 to port 0 and it started.
+
+I don't know what went wrong last time.
+
+I guess those Access Denied Error or ActiveSync was not connected properly to the emulator.
+
+I am sorry for the last post and thanks Mohit.
+
+ 
+
+So here it goes what I did to run it correctly (to help other who might stumble on same problems)
+
+- I am working in VS.NET 2005.
+
+- I have installed Microsoft ActiveSync 4.2 installed
+
+- In VS..NET IDE I start Device Emulator Manager from Tool menu
+
+- I right click on the Emulator I want to use (this case Pocket PC 2002), and select Connect. On successful it Shows green Play like button. 
+
+- I again right click on PPC 2002 and select "Cradle", On successful it will change to a pipe connector like symbol.
+
+- The active Sync starts getting the connection request from emulator.
+
+- The Active Sync was set in the connection setting with the checking all check boxes and specially the checkbox for 'Allow Connections to one of the following,  with "DMA"   in the combobox below it.
+
+- On successful connection the Active sync ask for the type New Partnership. Choose the Guest Partnership click on next button.
+
+- Active Sync should show that the device emulator is connected. (If not successful See note 1)
+
+-  In the emulator select the Configure menu under File menu. Select the Periferals option. Map the Serial port 0 to the COM4 (or the port to which the GPS is sending the data. See note 2 ) 
+
+- Run the program from VS.NET 2005, the program should check the port COM1  for receiving the data. (since we have mapped our desktop's COM4 to Serial Port 0. If we map the COM4 to Serial port 1 then we have to look for COM2 and so on. I have only tried Serial port 0 and reading from COM1.)
+
+- And that's it it your program should start receiving the data from GPS. 
+
+ 
+
+ 
+
+Note 1: If you have activesync connected first time successfully and then you disconnect, and try to cradle the emulator again, it might not connect. Then quit the ActiveSync, stop the process 'wcescomm.exe' from the task manager. Exit the emulator, start activesync, start emulator again and cradle it again.
+
+ 
+
+Note 2: If your GPS is sending data via bluetooth, to find the port to which it's sending data after it's connected via bluetooth, open the bluetooth Advanced Configuration, goto Client Applications Tab, find out the line saying Bluetooth Serial Port, and in that line under the COM port column the port name can be found which is used by the bluetooth devide to send the data to the desk top. In my case it's COM4. I unchecked the "secure connection" checkbox. Never tried with secure connection, so not sure about it.
+
+ 
+
+ 
+
+I hope this helps to many people.
+
+ 
+
+I have also put it on my site. 
+
+ 
+
+Thanks,
+
+Abhijit
+
+
+
+***************************************************************************************************
+
+
+ Pocket PC Emulator and ActiveSync
+
+Since starting with Pocket PC development my biggest frustration has always been getting ActiveSync to see the Emulator, as we rely heavily on an RAPI interface we developed due to the requirements of the AMS project. By fluke I came across an article today about using virtual communication drivers to achieve this and then found a way to do this easily.
+
+   1. Open ActiveSync and set the connection type to DMA
+   2. Start the required emulator. (In VS 2005 à Tools à Connect to Device)
+   3. Open the Device Emulator Manager (In VS 2005 à Tools à Device Emulator Manager)
+   4. Right click on the running emulator and select Cradle. 
+
+ActiveSync will detect the emulator and connect. When creating a partnership, save the emulator state when closing to keep all the credentials and settings.
