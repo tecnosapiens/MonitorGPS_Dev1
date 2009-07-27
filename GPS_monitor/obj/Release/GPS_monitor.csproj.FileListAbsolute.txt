@@ -58,3 +58,19 @@ C:\Repositorio Proyectos Propios\Programa GPSMonitor\GPS_monitor\obj\Release\GPS
 C:\Repositorio Proyectos Propios\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.csproj.GenerateResource.Cache
 C:\Repositorio Proyectos Propios\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.exe
 C:\Repositorio Proyectos Propios\Programa GPSMonitor\GPS_monitor\obj\Release\GPS_monitor.pdb
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\bin\Release\GPS_monitor.exe
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\bin\Release\GPS_monitor.pdb
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\bin\Release\System.Data.OracleClient.dll
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\bin\Release\System.Web.dll
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\bin\Release\System.EnterpriseServices.dll
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\bin\Release\System.Transactions.dll
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\bin\Release\System.EnterpriseServices.Wrapper.dll
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\GPS_monitor.CanvasMapa.resources
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\GPS_monitor.ConfiguraPuerto.resources
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\GPS_monitor.Form_ppal.resources
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\GPS_monitor.Properties.Resources.resources
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\GPS_monitor.VisorTramasNMEA.resources
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\GPS_monitor.csproj.GenerateResource.Cache
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\GPS_monitor.exe
+C:\Documents and Settings\admin\Escritorio\Repositorio Proyectos Propios\Developer1_MonitorGPS\GPS_monitor\obj\Release\GPS_monitor.pdb
