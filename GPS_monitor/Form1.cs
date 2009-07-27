@@ -104,11 +104,6 @@ namespace GPS_monitor
                     
                
 
-               
-
-
-               
-
                 if (visorNMEA.get_estadoNMEAVisor())
                 {
                     visorNMEA.set_DatosNMEAVisor(datoRecibido);

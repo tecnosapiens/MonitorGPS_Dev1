@@ -39,12 +39,14 @@
             this.label_longitud = new System.Windows.Forms.Label();
             this.checkBox_seguirPosicion = new System.Windows.Forms.CheckBox();
             this.panel_herramientas = new System.Windows.Forms.Panel();
+            this.button_zoomOut = new System.Windows.Forms.Button();
             this.checkBox_verVector = new System.Windows.Forms.CheckBox();
             this.label_imagen = new System.Windows.Forms.Label();
-            this.button_zoom = new System.Windows.Forms.Button();
+            this.button_zoomIn = new System.Windows.Forms.Button();
             this.button_cargarMision = new System.Windows.Forms.Button();
             this.button_ocultarPanelHerramientas = new System.Windows.Forms.Button();
             this.timer_graficadoCanvas = new System.Windows.Forms.Timer();
+            this.button_fullExtent = new System.Windows.Forms.Button();
             this.panel_pictureBox.SuspendLayout();
             this.panel_herramientas.SuspendLayout();
             this.SuspendLayout();
@@ -141,9 +143,11 @@
             // panel_herramientas
             // 
             this.panel_herramientas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel_herramientas.Controls.Add(this.button_fullExtent);
+            this.panel_herramientas.Controls.Add(this.button_zoomOut);
             this.panel_herramientas.Controls.Add(this.checkBox_verVector);
             this.panel_herramientas.Controls.Add(this.label_imagen);
-            this.panel_herramientas.Controls.Add(this.button_zoom);
+            this.panel_herramientas.Controls.Add(this.button_zoomIn);
             this.panel_herramientas.Controls.Add(this.button_cargarMision);
             this.panel_herramientas.Controls.Add(this.button_ocultarPanelHerramientas);
             this.panel_herramientas.Controls.Add(this.button_abrirImagen);
@@ -155,10 +159,20 @@
             this.panel_herramientas.Name = "panel_herramientas";
             this.panel_herramientas.Size = new System.Drawing.Size(237, 82);
             // 
+            // button_zoomOut
+            // 
+            this.button_zoomOut.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold);
+            this.button_zoomOut.Location = new System.Drawing.Point(70, 34);
+            this.button_zoomOut.Name = "button_zoomOut";
+            this.button_zoomOut.Size = new System.Drawing.Size(47, 20);
+            this.button_zoomOut.TabIndex = 19;
+            this.button_zoomOut.Text = "Zoom Out";
+            this.button_zoomOut.Click += new System.EventHandler(this.button_zoomOut_Click);
+            // 
             // checkBox_verVector
             // 
             this.checkBox_verVector.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.checkBox_verVector.Location = new System.Drawing.Point(143, 14);
+            this.checkBox_verVector.Location = new System.Drawing.Point(144, 16);
             this.checkBox_verVector.Name = "checkBox_verVector";
             this.checkBox_verVector.Size = new System.Drawing.Size(91, 20);
             this.checkBox_verVector.TabIndex = 15;
@@ -167,22 +181,20 @@
             // label_imagen
             // 
             this.label_imagen.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
-            this.label_imagen.Location = new System.Drawing.Point(71, 34);
+            this.label_imagen.Location = new System.Drawing.Point(171, 3);
             this.label_imagen.Name = "label_imagen";
-            this.label_imagen.Size = new System.Drawing.Size(60, 20);
+            this.label_imagen.Size = new System.Drawing.Size(60, 19);
             this.label_imagen.Text = "geoImagen";
             // 
-            // button_zoom
+            // button_zoomIn
             // 
-            this.button_zoom.Enabled = false;
-            this.button_zoom.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
-            this.button_zoom.Location = new System.Drawing.Point(72, 57);
-            this.button_zoom.Name = "button_zoom";
-            this.button_zoom.Size = new System.Drawing.Size(41, 20);
-            this.button_zoom.TabIndex = 12;
-            this.button_zoom.Text = "Zoom";
-            this.button_zoom.Visible = false;
-            this.button_zoom.Click += new System.EventHandler(this.button_zoom_Click);
+            this.button_zoomIn.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold);
+            this.button_zoomIn.Location = new System.Drawing.Point(70, 57);
+            this.button_zoomIn.Name = "button_zoomIn";
+            this.button_zoomIn.Size = new System.Drawing.Size(47, 20);
+            this.button_zoomIn.TabIndex = 12;
+            this.button_zoomIn.Text = "Zoom In";
+            this.button_zoomIn.Click += new System.EventHandler(this.button_zoom_Click);
             // 
             // button_cargarMision
             // 
@@ -209,6 +221,16 @@
             // 
             this.timer_graficadoCanvas.Interval = 1000;
             this.timer_graficadoCanvas.Tick += new System.EventHandler(this.timer_graficadoCanvas_Tick);
+            // 
+            // button_fullExtent
+            // 
+            this.button_fullExtent.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold);
+            this.button_fullExtent.Location = new System.Drawing.Point(70, 10);
+            this.button_fullExtent.Name = "button_fullExtent";
+            this.button_fullExtent.Size = new System.Drawing.Size(47, 20);
+            this.button_fullExtent.TabIndex = 23;
+            this.button_fullExtent.Text = "Full Extent";
+            this.button_fullExtent.Click += new System.EventHandler(this.button_fullExtent_Click);
             // 
             // CanvasMapa
             // 
@@ -237,10 +259,12 @@
         private System.Windows.Forms.Panel panel_herramientas;
         private System.Windows.Forms.Button button_ocultarPanelHerramientas;
         private System.Windows.Forms.Button button_cargarMision;
-        private System.Windows.Forms.Button button_zoom;
+        private System.Windows.Forms.Button button_zoomIn;
         private System.Windows.Forms.Label label_imagen;
         private System.Windows.Forms.CheckBox checkBox_verVector;
         private System.Windows.Forms.Timer timer_graficadoCanvas;
+        private System.Windows.Forms.Button button_zoomOut;
+        private System.Windows.Forms.Button button_fullExtent;
 
     }
 }

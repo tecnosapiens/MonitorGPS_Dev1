@@ -45,6 +45,9 @@ namespace GPS_monitor
         int pictureXAnt;
         int pictureYAnt;
 
+        int zoomAncho;
+        int zoomAlto;
+
 
         List<FileWLD> listaFileWLD;
 
@@ -101,6 +104,9 @@ namespace GPS_monitor
 
             pictureXAnt = 1000;
             pictureYAnt = 1000;
+
+            zoomAncho = 0;
+            zoomAlto = 0;
         
          
         }
@@ -488,8 +494,32 @@ namespace GPS_monitor
             if ((geoImgPixelX > hScrollBar1.Value && geoImgPixelX < (pictureBox_canvasMapa.Size.Width + hScrollBar1.Value)) &&
                 (geoImgPixelY > vScrollBar1.Value && geoImgPixelY < (pictureBox_canvasMapa.Size.Height + vScrollBar1.Value)))
             {
-                pictureBoxPixelX = Math.Abs(geoImgPixelX - hScrollBar1.Value);
-                pictureBoxPixelY = Math.Abs(geoImgPixelY - vScrollBar1.Value);
+                if (zoomAlto < 0 && zoomAncho < 0)
+                {
+
+                    pictureBoxPixelX = Math.Abs((geoImgPixelX - hScrollBar1.Value) - zoomAncho);
+                    pictureBoxPixelY = Math.Abs((geoImgPixelY - vScrollBar1.Value) - zoomAlto);
+                }
+                else
+                {
+                    if (zoomAncho > 0 && zoomAlto > 0)
+                    {
+                        pictureBoxPixelX = Math.Abs((geoImgPixelX - hScrollBar1.Value)-5);
+                        pictureBoxPixelY = Math.Abs((geoImgPixelY - vScrollBar1.Value)-5);
+
+                    }
+                    else
+                    {
+                        pictureBoxPixelX = Math.Abs(geoImgPixelX - hScrollBar1.Value);
+                        pictureBoxPixelY = Math.Abs(geoImgPixelY - vScrollBar1.Value);
+
+                    }
+                }
+
+                //pictureBoxPixelX = Math.Abs(geoImgPixelX - hScrollBar1.Value);
+                //pictureBoxPixelY = Math.Abs(geoImgPixelY - vScrollBar1.Value);
+
+
             }
             
             
@@ -749,59 +779,68 @@ namespace GPS_monitor
             return false;
         }
 
-        private void Zoom()
+        private void ZoomOut()
         {
             //if (imagenAbierta)
             //{
-            //    Rectangle src = new Rectangle(0, 0, geoImagen.Width, geoImagen.Height);
-            //    Rectangle dest;
-
-            //    if (geoImagen.Width / geoImagen.Height < ClientSize.Width / ClientSize.Height)
-            //    {
-            //        // Stretch height of image to match height of control
-            //        int newPhotoHeight = ClientSize.Height;
-            //        //if (restrict)
-            //        //    newPhotoHeight = Math.Min(newPhotoHeight, photo.Height);
-
-            //       double newPhotoTop = (ClientSize.Height - newPhotoHeight) / 0.5;
-            //       double newPhotoBottom = newPhotoTop + newPhotoHeight;
-
-            //        // Then calculate the matching width of the image and center it
-            //        float newPhotoWidth = newPhotoHeight * geoImagen.Width / geoImagen.Height;
-            //        double newPhotoLeft = (int)((ClientSize.Width - newPhotoWidth) / 0.5);
-
-            //        dest = new Rectangle(newPhotoLeft, newPhotoTop, (int)newPhotoWidth, newPhotoHeight);
-            //    }
-            //    else
-            //    {
-            //        // Stretch width of image to match width of control
-            //        int newPhotoWidth = ClientSize.Width;
-            //        //if (restrict)
-            //        //    newPhotoWidth = Math.Min(newPhotoWidth, photo.Width);
-
-            //        double newPhotoLeft = (ClientSize.Width - newPhotoWidth) / 0.5;
-            //        int newPhotoRight = newPhotoLeft + newPhotoWidth;
-
-            //        // Then calculate the matching height of the image and center it
-            //        float newPhotoHeight = newPhotoWidth * geoImagen.Height / geoImagen.Width;
-            //        double newPhotoTop = (int)((ClientSize.Height - newPhotoHeight) / 0.5);
-
-            //        dest = new Rectangle(newPhotoLeft, newPhotoTop, newPhotoWidth, (int)newPhotoHeight);
-            //    }
-
-            //    // Draw the scaled image in the correct location
-            //    mem.DrawImage(geoImagen, dest, src, GraphicsUnit.Pixel);
-            //    pictureBox_canvasMapa.Image = bmMem;
-
             //}
+            zoomAlto = zoomAlto + 5;
+            zoomAncho = zoomAncho + 5;
+
+            mem.DrawImage(geoImagen,
+                          new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                          new Rectangle(hScrollBar1.Value, vScrollBar1.Value, pictureBox_canvasMapa.Right - vScrollBar1.Width + zoomAncho, pictureBox_canvasMapa.Bottom - hScrollBar1.Height + zoomAlto),
+                          GraphicsUnit.Pixel);
+
+            pictureBox_canvasMapa.Image = bmMem;
+            
 
             
 
         }
 
+        private void ZoomIn()
+        {
+            //if (imagenAbierta)
+            //{
+            //}
+            zoomAlto = zoomAlto - 5;
+            zoomAncho = zoomAncho - 5;
+
+            mem.DrawImage(geoImagen,
+                          new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                          new Rectangle(hScrollBar1.Value, vScrollBar1.Value, pictureBox_canvasMapa.Right - vScrollBar1.Width + zoomAncho, pictureBox_canvasMapa.Bottom - hScrollBar1.Height + zoomAlto),
+                          GraphicsUnit.Pixel);
+
+            pictureBox_canvasMapa.Image = bmMem;
+
+        }
+
+        private void button_fullExtent_Click(object sender, EventArgs e)
+        {
+
+            zoomAlto = 0;
+            zoomAncho = 0;
+
+            mem.DrawImage(geoImagen,
+                          new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                          new Rectangle(hScrollBar1.Value, vScrollBar1.Value, pictureBox_canvasMapa.Right - vScrollBar1.Width + zoomAncho, pictureBox_canvasMapa.Bottom - hScrollBar1.Height + zoomAlto),
+                          GraphicsUnit.Pixel);
+
+            pictureBox_canvasMapa.Image = bmMem;
+
+        }
+
+
         private void button_zoom_Click(object sender, EventArgs e)
         {
-            Zoom();
+            ZoomIn();
+        }
+
+        private void button_zoomOut_Click(object sender, EventArgs e)
+        {
+            ZoomOut();
+
         }
 
 
@@ -846,12 +885,16 @@ namespace GPS_monitor
                         //MessageBox.Show("No se encontro GeoImagen para la Posicion Actual", "Informacion ", MessageBoxButtons.OK, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                         LimpiarImagen();
 
-                        mem.DrawImage(geoImagen, new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width,
-                                 pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
-                                 new Rectangle(hScrollBar1.Value, vScrollBar1.Value,
-                                 pictureBox_canvasMapa.Right - vScrollBar1.Width,
-                                 pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
-                                 GraphicsUnit.Pixel);
+                        mem.DrawImage(geoImagen,
+                                 new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                            new Rectangle(hScrollBar1.Value, vScrollBar1.Value, pictureBox_canvasMapa.Right - vScrollBar1.Width + zoomAncho, pictureBox_canvasMapa.Bottom - hScrollBar1.Height + zoomAlto),
+                            GraphicsUnit.Pixel);
+                        //mem.DrawImage(geoImagen, new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width,
+                        //         pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                        //         new Rectangle(hScrollBar1.Value, vScrollBar1.Value,
+                        //         pictureBox_canvasMapa.Right - vScrollBar1.Width,
+                        //         pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                        //         GraphicsUnit.Pixel);
 
 
                         pluma.Color = Color.BlueViolet;
@@ -874,12 +917,19 @@ namespace GPS_monitor
 
                     LimpiarImagen();
 
-                    mem.DrawImage(geoImagen, new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width,
-                             pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
-                             new Rectangle(hScrollBar1.Value, vScrollBar1.Value,
-                             pictureBox_canvasMapa.Right - vScrollBar1.Width,
-                             pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                    mem.DrawImage(geoImagen, 
+                                  new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width,pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                             new Rectangle(hScrollBar1.Value, vScrollBar1.Value, pictureBox_canvasMapa.Right - vScrollBar1.Width + zoomAncho,pictureBox_canvasMapa.Bottom - hScrollBar1.Height + zoomAlto),
                              GraphicsUnit.Pixel);
+
+                
+
+                    //mem.DrawImage(geoImagen, new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width,
+                    //         pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                    //         new Rectangle(hScrollBar1.Value, vScrollBar1.Value,
+                    //         pictureBox_canvasMapa.Right - vScrollBar1.Width,
+                    //         pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                    //         GraphicsUnit.Pixel);
 
                     pictureXAnt = pictureX;
                     pictureYAnt = pictureY;
@@ -915,6 +965,9 @@ namespace GPS_monitor
 
 
         }
+
+        
+      
 
        
 
