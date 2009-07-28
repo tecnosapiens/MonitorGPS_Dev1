@@ -96,7 +96,7 @@
             // 
             // pictureBox_rosaManiobra
             // 
-            this.pictureBox_rosaManiobra.BackColor = System.Drawing.Color.Black;
+            this.pictureBox_rosaManiobra.BackColor = System.Drawing.Color.Silver;
             this.pictureBox_rosaManiobra.Location = new System.Drawing.Point(0, 138);
             this.pictureBox_rosaManiobra.Name = "pictureBox_rosaManiobra";
             this.pictureBox_rosaManiobra.Size = new System.Drawing.Size(136, 127);
@@ -145,7 +145,7 @@
             // 
             // button_recibirGPS
             // 
-            this.button_recibirGPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button_recibirGPS.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button_recibirGPS.Location = new System.Drawing.Point(142, 138);
             this.button_recibirGPS.Name = "button_recibirGPS";
             this.button_recibirGPS.Size = new System.Drawing.Size(95, 28);
@@ -155,7 +155,7 @@
             // 
             // button_pararRecepcionGPS
             // 
-            this.button_pararRecepcionGPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button_pararRecepcionGPS.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button_pararRecepcionGPS.Enabled = false;
             this.button_pararRecepcionGPS.Location = new System.Drawing.Point(142, 172);
             this.button_pararRecepcionGPS.Name = "button_pararRecepcionGPS";
@@ -166,7 +166,7 @@
             // 
             // button_cerrar
             // 
-            this.button_cerrar.BackColor = System.Drawing.Color.Red;
+            this.button_cerrar.BackColor = System.Drawing.Color.OrangeRed;
             this.button_cerrar.Location = new System.Drawing.Point(142, 237);
             this.button_cerrar.Name = "button_cerrar";
             this.button_cerrar.Size = new System.Drawing.Size(95, 28);
@@ -256,7 +256,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(240, 268);
             this.Controls.Add(this.label_rumbo);
             this.Controls.Add(this.label6);

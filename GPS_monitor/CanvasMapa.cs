@@ -2,6 +2,7 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Resources;
 using System.Drawing;
 using System.Data;
 using System.Text;
@@ -15,6 +16,7 @@ namespace GPS_monitor
         Bitmap bmMem;//bitmap del control que se trabajara
         Bitmap geoImagen;
         Graphics mem;
+        
        
         Pen pluma;
         Font fuente;
@@ -49,6 +51,7 @@ namespace GPS_monitor
 
         int zoomAncho;
         int zoomAlto;
+        bool panelHerramientasActivo;
 
 
         List<FileWLD> listaFileWLD;
@@ -115,8 +118,11 @@ namespace GPS_monitor
             zoomAncho = 0;
             zoomAlto = 0;
             deltaZoomOut = 0;
-        
-         
+            panelHerramientasActivo = false;
+            NodisplayBarraHerramientas();
+
+
+          
         }
 
         private void button_abrirImagen_Click(object sender, EventArgs e)
@@ -172,7 +178,7 @@ namespace GPS_monitor
                     this.DisplayScrollBars();
                     this.SetScrollBarValues();
                     this.Refresh();
-                    displayBarraHerramientas();
+                    //displayBarraHerramientas();
                     button_ocultarPanelHerramientas.Enabled = true;
                 }
                 catch
@@ -221,6 +227,10 @@ namespace GPS_monitor
             {
                 vScrollBar1.Visible = true;
             }
+
+            
+
+            
         }
 
         private void HandleScroll(Object sender, System.EventArgs se)
@@ -229,12 +239,15 @@ namespace GPS_monitor
                of the image in the PictureBox. */
 
 
-            mem.DrawImage(this.geoImagen, new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width,
-                          pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
-                          new Rectangle(hScrollBar1.Value, vScrollBar1.Value,
-                          pictureBox_canvasMapa.Right - vScrollBar1.Width,
-                          pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
-                          GraphicsUnit.Pixel);
+            //mem.DrawImage(this.geoImagen, new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+            //              new Rectangle(hScrollBar1.Value, vScrollBar1.Value,pictureBox_canvasMapa.Right - vScrollBar1.Width,pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+            //              GraphicsUnit.Pixel);
+
+            //Con informacion de zoom
+            mem.DrawImage(geoImagen,
+                                 new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
+                            new Rectangle(hScrollBar1.Value, vScrollBar1.Value, pictureBox_canvasMapa.Right - vScrollBar1.Width + zoomAncho, pictureBox_canvasMapa.Bottom - hScrollBar1.Height + zoomAlto),
+                            GraphicsUnit.Pixel);
 
             mem.DrawImage(bmMem, 0, 0);
             this.pictureBox_canvasMapa.Image = bmMem;
@@ -581,7 +594,8 @@ namespace GPS_monitor
                 this.DisplayScrollBars();
                 this.SetScrollBarValues();
                 this.Refresh();
-                displayBarraHerramientas();
+                NodisplayBarraHerramientas();
+                
 
                 mem.DrawImage(this.geoImagen, new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width,
                              pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
@@ -599,6 +613,7 @@ namespace GPS_monitor
         {
             if (imagenAbierta)
             {
+                panelHerramientasActivo = true;
                 panel_herramientas.Visible = false;
                 panel_pictureBox.Width = this.Width;
                 panel_pictureBox.Height = this.Height;
@@ -761,7 +776,7 @@ namespace GPS_monitor
                         this.Refresh();
                         imagenAbierta = true;
                         button_ocultarPanelHerramientas.Enabled = true;
-                        displayBarraHerramientas();
+                        //displayBarraHerramientas();
                         iniciarGraficado();
 
                         return true;
@@ -783,11 +798,23 @@ namespace GPS_monitor
 
         private void displayBarraHerramientas()
         {
-            panel_barraHerramientas.Location = new Point(0, (panel_pictureBox.Height-hScrollBar1.Height)-panel_barraHerramientas.Height);
+
+            panel_barraHerramientas.Location = new Point(0,0);
+            panel_barraHerramientas.Size = new Size(panel_pictureBox.Width - vScrollBar1.Width, 20);
             panel_barraHerramientas.BringToFront();
             panel_barraHerramientas.Visible = true;
-            this.vScrollBar1.BringToFront();
-            this.hScrollBar1.BringToFront();
+            //this.vScrollBar1.BringToFront();
+            //this.hScrollBar1.BringToFront();
+
+        }
+
+        private void NodisplayBarraHerramientas()
+        {
+
+            panel_barraHerramientas.Visible = false;
+            panel_barraHerramientas.SendToBack();
+            //this.vScrollBar1.BringToFront();
+            //this.hScrollBar1.BringToFront();
 
         }
 
@@ -844,9 +871,8 @@ namespace GPS_monitor
 
         }
 
-        private void button_fullExtent_Click(object sender, EventArgs e)
+        private void ZoomFullExtend()
         {
-
             zoomAlto = 0;
             zoomAncho = 0;
             deltaZoomOut = 0;
@@ -857,6 +883,13 @@ namespace GPS_monitor
                           GraphicsUnit.Pixel);
 
             pictureBox_canvasMapa.Image = bmMem;
+
+        }
+
+        private void button_fullExtent_Click(object sender, EventArgs e)
+        {
+
+            ZoomFullExtend();
 
         }
 
@@ -871,6 +904,8 @@ namespace GPS_monitor
             ZoomOut();
 
         }
+
+        
 
 
         private int obtenerImagenMenorEscala(int escala, double latActual, double lonActual)
@@ -993,6 +1028,28 @@ namespace GPS_monitor
             }
 
 
+        }
+
+        
+
+        private void button_zoomInToolBar_Click(object sender, EventArgs e)
+        {
+            ZoomIn();
+        }
+
+        private void button_zoomOutToolBar_Click(object sender, EventArgs e)
+        {
+            ZoomOut();
+        }
+
+        private void button_zoomFullToolBar_Click(object sender, EventArgs e)
+        {
+            ZoomFullExtend();
+        }
+
+        private void button_herramientasToolBar_Click(object sender, EventArgs e)
+        {
+            verPanelHerramientas();
         }
 
        

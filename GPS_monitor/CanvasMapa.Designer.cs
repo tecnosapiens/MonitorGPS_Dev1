@@ -35,6 +35,7 @@
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
             this.panel_pictureBox = new System.Windows.Forms.Panel();
+            this.panel_barraHerramientas = new System.Windows.Forms.Panel();
             this.label_latitud = new System.Windows.Forms.Label();
             this.label_longitud = new System.Windows.Forms.Label();
             this.checkBox_seguirPosicion = new System.Windows.Forms.CheckBox();
@@ -47,8 +48,12 @@
             this.button_cargarMision = new System.Windows.Forms.Button();
             this.button_ocultarPanelHerramientas = new System.Windows.Forms.Button();
             this.timer_graficadoCanvas = new System.Windows.Forms.Timer();
-            this.panel_barraHerramientas = new System.Windows.Forms.Panel();
+            this.button_zoomInToolBar = new System.Windows.Forms.Button();
+            this.button_zoomOutToolBar = new System.Windows.Forms.Button();
+            this.button_zoomFullToolBar = new System.Windows.Forms.Button();
+            this.button_herramientasToolBar = new System.Windows.Forms.Button();
             this.panel_pictureBox.SuspendLayout();
+            this.panel_barraHerramientas.SuspendLayout();
             this.panel_herramientas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +120,18 @@
             this.panel_pictureBox.Name = "panel_pictureBox";
             this.panel_pictureBox.Size = new System.Drawing.Size(240, 180);
             // 
+            // panel_barraHerramientas
+            // 
+            this.panel_barraHerramientas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel_barraHerramientas.Controls.Add(this.button_herramientasToolBar);
+            this.panel_barraHerramientas.Controls.Add(this.button_zoomFullToolBar);
+            this.panel_barraHerramientas.Controls.Add(this.button_zoomOutToolBar);
+            this.panel_barraHerramientas.Controls.Add(this.button_zoomInToolBar);
+            this.panel_barraHerramientas.Location = new System.Drawing.Point(1, 108);
+            this.panel_barraHerramientas.Name = "panel_barraHerramientas";
+            this.panel_barraHerramientas.Size = new System.Drawing.Size(220, 20);
+            this.panel_barraHerramientas.Visible = false;
+            // 
             // label_latitud
             // 
             this.label_latitud.Font = new System.Drawing.Font("Tahoma", 7F, System.Drawing.FontStyle.Regular);
@@ -144,7 +161,7 @@
             // 
             // panel_herramientas
             // 
-            this.panel_herramientas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel_herramientas.BackColor = System.Drawing.Color.White;
             this.panel_herramientas.Controls.Add(this.button_fullExtent);
             this.panel_herramientas.Controls.Add(this.button_zoomOut);
             this.panel_herramientas.Controls.Add(this.checkBox_verVector);
@@ -234,13 +251,49 @@
             this.timer_graficadoCanvas.Interval = 1000;
             this.timer_graficadoCanvas.Tick += new System.EventHandler(this.timer_graficadoCanvas_Tick);
             // 
-            // panel_barraHerramientas
+            // button_zoomInToolBar
             // 
-            this.panel_barraHerramientas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel_barraHerramientas.Location = new System.Drawing.Point(0, 141);
-            this.panel_barraHerramientas.Name = "panel_barraHerramientas";
-            this.panel_barraHerramientas.Size = new System.Drawing.Size(240, 23);
-            this.panel_barraHerramientas.Visible = false;
+            this.button_zoomInToolBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button_zoomInToolBar.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.button_zoomInToolBar.Location = new System.Drawing.Point(8, 3);
+            this.button_zoomInToolBar.Name = "button_zoomInToolBar";
+            this.button_zoomInToolBar.Size = new System.Drawing.Size(15, 15);
+            this.button_zoomInToolBar.TabIndex = 0;
+            this.button_zoomInToolBar.Text = "+";
+            this.button_zoomInToolBar.Click += new System.EventHandler(this.button_zoomInToolBar_Click);
+            // 
+            // button_zoomOutToolBar
+            // 
+            this.button_zoomOutToolBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.button_zoomOutToolBar.Font = new System.Drawing.Font("Courier New", 10F, System.Drawing.FontStyle.Bold);
+            this.button_zoomOutToolBar.Location = new System.Drawing.Point(30, 3);
+            this.button_zoomOutToolBar.Name = "button_zoomOutToolBar";
+            this.button_zoomOutToolBar.Size = new System.Drawing.Size(15, 15);
+            this.button_zoomOutToolBar.TabIndex = 1;
+            this.button_zoomOutToolBar.Text = "-";
+            this.button_zoomOutToolBar.Click += new System.EventHandler(this.button_zoomOutToolBar_Click);
+            // 
+            // button_zoomFullToolBar
+            // 
+            this.button_zoomFullToolBar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button_zoomFullToolBar.Font = new System.Drawing.Font("Courier New", 6F, System.Drawing.FontStyle.Bold);
+            this.button_zoomFullToolBar.Location = new System.Drawing.Point(55, 3);
+            this.button_zoomFullToolBar.Name = "button_zoomFullToolBar";
+            this.button_zoomFullToolBar.Size = new System.Drawing.Size(15, 15);
+            this.button_zoomFullToolBar.TabIndex = 2;
+            this.button_zoomFullToolBar.Text = "[]";
+            this.button_zoomFullToolBar.Click += new System.EventHandler(this.button_zoomFullToolBar_Click);
+            // 
+            // button_herramientasToolBar
+            // 
+            this.button_herramientasToolBar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button_herramientasToolBar.Font = new System.Drawing.Font("Courier New", 6F, System.Drawing.FontStyle.Bold);
+            this.button_herramientasToolBar.Location = new System.Drawing.Point(85, 3);
+            this.button_herramientasToolBar.Name = "button_herramientasToolBar";
+            this.button_herramientasToolBar.Size = new System.Drawing.Size(25, 15);
+            this.button_herramientasToolBar.TabIndex = 3;
+            this.button_herramientasToolBar.Text = "Tool";
+            this.button_herramientasToolBar.Click += new System.EventHandler(this.button_herramientasToolBar_Click);
             // 
             // CanvasMapa
             // 
@@ -251,6 +304,7 @@
             this.Name = "CanvasMapa";
             this.Size = new System.Drawing.Size(240, 268);
             this.panel_pictureBox.ResumeLayout(false);
+            this.panel_barraHerramientas.ResumeLayout(false);
             this.panel_herramientas.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -276,6 +330,10 @@
         private System.Windows.Forms.Button button_zoomOut;
         private System.Windows.Forms.Button button_fullExtent;
         private System.Windows.Forms.Panel panel_barraHerramientas;
+        private System.Windows.Forms.Button button_zoomFullToolBar;
+        private System.Windows.Forms.Button button_zoomOutToolBar;
+        private System.Windows.Forms.Button button_zoomInToolBar;
+        private System.Windows.Forms.Button button_herramientasToolBar;
 
     }
 }

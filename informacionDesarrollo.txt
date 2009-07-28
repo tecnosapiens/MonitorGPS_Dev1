@@ -1,0 +1,2 @@
+Pagina de informacion sobre los sistemas operativos que soporta el net compact framework = http://msdn.microsoft.com/en-us/library/ms172550.aspx
+
