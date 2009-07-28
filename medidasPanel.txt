@@ -1,0 +1,9 @@
+canvas mapa:
+240,268
+
+panel herramientas:
+location : 1,183
+
+panel picturebox
+size: 240,180
+

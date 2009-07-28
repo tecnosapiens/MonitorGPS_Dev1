@@ -25,6 +25,8 @@ namespace GPS_monitor
 
         int panelCanvasAnchoIni;
         int panelCanvasAltoIni;
+
+        int deltaZoomOut;
         
         bool imagenAbierta;
 
@@ -61,14 +63,19 @@ namespace GPS_monitor
         {
             InitializeComponent();
 
+            
+
             panelCanvasAnchoIni = panel_pictureBox.Width;
             panelCanvasAltoIni = panel_pictureBox.Height;
+
+            panel_pictureBox.Size = new Size(240, 180);
+
 
             pictureBox_canvasMapa.Width = panel_pictureBox.Width;
             pictureBox_canvasMapa.Height = panel_pictureBox.Height;
 
-            
 
+             
             this.vScrollBar1.BringToFront();
             this.hScrollBar1.BringToFront();
 
@@ -107,6 +114,7 @@ namespace GPS_monitor
 
             zoomAncho = 0;
             zoomAlto = 0;
+            deltaZoomOut = 0;
         
          
         }
@@ -164,6 +172,7 @@ namespace GPS_monitor
                     this.DisplayScrollBars();
                     this.SetScrollBarValues();
                     this.Refresh();
+                    displayBarraHerramientas();
                     button_ocultarPanelHerramientas.Enabled = true;
                 }
                 catch
@@ -499,13 +508,15 @@ namespace GPS_monitor
 
                     pictureBoxPixelX = Math.Abs((geoImgPixelX - hScrollBar1.Value) - zoomAncho);
                     pictureBoxPixelY = Math.Abs((geoImgPixelY - vScrollBar1.Value) - zoomAlto);
+                    
                 }
                 else
                 {
                     if (zoomAncho > 0 && zoomAlto > 0)
                     {
-                        pictureBoxPixelX = Math.Abs((geoImgPixelX - hScrollBar1.Value)-5);
-                        pictureBoxPixelY = Math.Abs((geoImgPixelY - vScrollBar1.Value)-5);
+                       
+                        pictureBoxPixelX = Math.Abs((geoImgPixelX - hScrollBar1.Value) - deltaZoomOut);
+                        pictureBoxPixelY = Math.Abs((geoImgPixelY - vScrollBar1.Value) - deltaZoomOut);
 
                     }
                     else
@@ -570,6 +581,7 @@ namespace GPS_monitor
                 this.DisplayScrollBars();
                 this.SetScrollBarValues();
                 this.Refresh();
+                displayBarraHerramientas();
 
                 mem.DrawImage(this.geoImagen, new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width,
                              pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
@@ -605,6 +617,7 @@ namespace GPS_monitor
                 this.DisplayScrollBars();
                 this.SetScrollBarValues();
                 this.Refresh();
+                displayBarraHerramientas();
 
                
             }
@@ -748,6 +761,7 @@ namespace GPS_monitor
                         this.Refresh();
                         imagenAbierta = true;
                         button_ocultarPanelHerramientas.Enabled = true;
+                        displayBarraHerramientas();
                         iniciarGraficado();
 
                         return true;
@@ -765,6 +779,16 @@ namespace GPS_monitor
                 return false;
             }
  
+        }
+
+        private void displayBarraHerramientas()
+        {
+            panel_barraHerramientas.Location = new Point(0, (panel_pictureBox.Height-hScrollBar1.Height)-panel_barraHerramientas.Height);
+            panel_barraHerramientas.BringToFront();
+            panel_barraHerramientas.Visible = true;
+            this.vScrollBar1.BringToFront();
+            this.hScrollBar1.BringToFront();
+
         }
 
         private bool IsPosicionGeoCorrecta()
@@ -787,6 +811,8 @@ namespace GPS_monitor
             zoomAlto = zoomAlto + 5;
             zoomAncho = zoomAncho + 5;
 
+            deltaZoomOut = deltaZoomOut + 2;
+
             mem.DrawImage(geoImagen,
                           new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
                           new Rectangle(hScrollBar1.Value, vScrollBar1.Value, pictureBox_canvasMapa.Right - vScrollBar1.Width + zoomAncho, pictureBox_canvasMapa.Bottom - hScrollBar1.Height + zoomAlto),
@@ -807,6 +833,8 @@ namespace GPS_monitor
             zoomAlto = zoomAlto - 5;
             zoomAncho = zoomAncho - 5;
 
+            deltaZoomOut = deltaZoomOut - 1;
+
             mem.DrawImage(geoImagen,
                           new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
                           new Rectangle(hScrollBar1.Value, vScrollBar1.Value, pictureBox_canvasMapa.Right - vScrollBar1.Width + zoomAncho, pictureBox_canvasMapa.Bottom - hScrollBar1.Height + zoomAlto),
@@ -821,6 +849,7 @@ namespace GPS_monitor
 
             zoomAlto = 0;
             zoomAncho = 0;
+            deltaZoomOut = 0;
 
             mem.DrawImage(geoImagen,
                           new Rectangle(0, 0, pictureBox_canvasMapa.Right - vScrollBar1.Width, pictureBox_canvasMapa.Bottom - hScrollBar1.Height),
@@ -966,7 +995,7 @@ namespace GPS_monitor
 
         }
 
-        
+       
       
 
        

@@ -39,6 +39,7 @@
             this.label_longitud = new System.Windows.Forms.Label();
             this.checkBox_seguirPosicion = new System.Windows.Forms.CheckBox();
             this.panel_herramientas = new System.Windows.Forms.Panel();
+            this.button_fullExtent = new System.Windows.Forms.Button();
             this.button_zoomOut = new System.Windows.Forms.Button();
             this.checkBox_verVector = new System.Windows.Forms.CheckBox();
             this.label_imagen = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             this.button_cargarMision = new System.Windows.Forms.Button();
             this.button_ocultarPanelHerramientas = new System.Windows.Forms.Button();
             this.timer_graficadoCanvas = new System.Windows.Forms.Timer();
-            this.button_fullExtent = new System.Windows.Forms.Button();
+            this.panel_barraHerramientas = new System.Windows.Forms.Panel();
             this.panel_pictureBox.SuspendLayout();
             this.panel_herramientas.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +107,7 @@
             // 
             // panel_pictureBox
             // 
+            this.panel_pictureBox.Controls.Add(this.panel_barraHerramientas);
             this.panel_pictureBox.Controls.Add(this.pictureBox_canvasMapa);
             this.panel_pictureBox.Controls.Add(this.vScrollBar1);
             this.panel_pictureBox.Controls.Add(this.hScrollBar1);
@@ -158,6 +160,16 @@
             this.panel_herramientas.Location = new System.Drawing.Point(1, 183);
             this.panel_herramientas.Name = "panel_herramientas";
             this.panel_herramientas.Size = new System.Drawing.Size(237, 82);
+            // 
+            // button_fullExtent
+            // 
+            this.button_fullExtent.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold);
+            this.button_fullExtent.Location = new System.Drawing.Point(70, 8);
+            this.button_fullExtent.Name = "button_fullExtent";
+            this.button_fullExtent.Size = new System.Drawing.Size(47, 20);
+            this.button_fullExtent.TabIndex = 23;
+            this.button_fullExtent.Text = "Full Extent";
+            this.button_fullExtent.Click += new System.EventHandler(this.button_fullExtent_Click);
             // 
             // button_zoomOut
             // 
@@ -222,15 +234,13 @@
             this.timer_graficadoCanvas.Interval = 1000;
             this.timer_graficadoCanvas.Tick += new System.EventHandler(this.timer_graficadoCanvas_Tick);
             // 
-            // button_fullExtent
+            // panel_barraHerramientas
             // 
-            this.button_fullExtent.Font = new System.Drawing.Font("Tahoma", 6F, System.Drawing.FontStyle.Bold);
-            this.button_fullExtent.Location = new System.Drawing.Point(70, 10);
-            this.button_fullExtent.Name = "button_fullExtent";
-            this.button_fullExtent.Size = new System.Drawing.Size(47, 20);
-            this.button_fullExtent.TabIndex = 23;
-            this.button_fullExtent.Text = "Full Extent";
-            this.button_fullExtent.Click += new System.EventHandler(this.button_fullExtent_Click);
+            this.panel_barraHerramientas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel_barraHerramientas.Location = new System.Drawing.Point(0, 141);
+            this.panel_barraHerramientas.Name = "panel_barraHerramientas";
+            this.panel_barraHerramientas.Size = new System.Drawing.Size(240, 23);
+            this.panel_barraHerramientas.Visible = false;
             // 
             // CanvasMapa
             // 
@@ -265,6 +275,7 @@
         private System.Windows.Forms.Timer timer_graficadoCanvas;
         private System.Windows.Forms.Button button_zoomOut;
         private System.Windows.Forms.Button button_fullExtent;
+        private System.Windows.Forms.Panel panel_barraHerramientas;
 
     }
 }
